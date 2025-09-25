@@ -6,7 +6,7 @@ const counterSignal = signal(10);
 @Component({
   templateUrl: './counter-page.component.html',
   styleUrl: './counter-page.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 
 export class CounterPageComponent{
