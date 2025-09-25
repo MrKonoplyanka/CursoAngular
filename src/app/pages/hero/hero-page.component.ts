@@ -4,7 +4,7 @@ import { Component, computed, signal } from "@angular/core"
 
 @Component({
   templateUrl: './hero-page.component.html',
-  imports: [UpperCasePipe],
+  imports: [UpperCasePipe]
 
 })
 export class HeroPageComponent {
