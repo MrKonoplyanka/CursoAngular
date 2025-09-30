@@ -1,12 +1,13 @@
 import { Component, computed, signal } from '@angular/core';
 import { CharacterListComponent } from "../../components/shared/navbar/dragonball/character-list/character-list.component";
 import type { Character } from '../../interfaces/character.interface';
+import { CharacterAddComponent } from "../../components/shared/navbar/dragonball/character-add/character-add.component";
 
 
 @Component({
-    templateUrl: './dragonball-super-page.component.html',
-    selector: 'dragonball-super',
-    imports: [CharacterListComponent]
+  templateUrl: './dragonball-super-page.component.html',
+  selector: 'dragonball-super',
+  imports: [CharacterListComponent, CharacterAddComponent]
 })
 export class DragonballSuperPageComponent {
 
@@ -18,26 +19,7 @@ export class DragonballSuperPageComponent {
     { id: 2, name: 'Vegeta', power: 8500 },
   ]);
 
-addCharacter() {
-  let character: Character = {
-    id: 7,
-    name: this.name(),
-    power: this.power(),
+  addCharacter(character: Character) {
+    this.characters.update(currentCharacters => [...currentCharacters, character]);
   }
-
-  this.characters.update((current) => [...current, character]);
-  this.resetFields();
-
-}
-powerClasses = computed(() => {
-  return {
-      'text-danger': true,
-  };
-});
-
-resetFields(){
-  this.name.set('');
-  this.power.set(0);
-}
-
 }
